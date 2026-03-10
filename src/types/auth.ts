@@ -34,4 +34,5 @@ export interface SignUpFormData extends SignUpRequest {
   confirmPassword: string;
 }
 
-export interface LoginFormData extends LoginRequest {}
+export type LoginFormData = LoginRequest;
+

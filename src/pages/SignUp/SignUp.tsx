@@ -33,10 +33,18 @@ const SignUp = () => {
     setLoading(true);
 
     try {
-      // Remove confirmPassword before sending to API
-      const { confirmPassword, ...signUpData } = formData;
-      
-      const response = await authService.signUp(signUpData);
+      const response = await authService.signUp({
+        salonName: formData.salonName,
+        email: formData.email,
+        phone: formData.phone,
+        address: formData.address,
+        city: formData.city,
+        country: formData.country,
+        timeZone: formData.timeZone,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        password: formData.password,
+      });
       console.log('Sign up successful:', response);
       setSuccessMessage(
         `Welcome ${formData.firstName}! Your salon "${formData.salonName}" has been registered successfully.`
@@ -48,8 +56,9 @@ const SignUp = () => {
         // navigate to login page
         navigate('/login');
       }, 2000);
-    } catch (error: any) {
-      setApiError(error.message || 'An error occurred during sign up. Please try again.');
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'An error occurred during sign up. Please try again.';
+      setApiError(errorMessage);
       console.error('Sign up error:', error);
     } finally {
       setLoading(false);
@@ -321,3 +330,4 @@ const SignUp = () => {
 };
 
 export default SignUp;
+

@@ -42,8 +42,10 @@ const Login = () => {
         // redirect via router so we don't reload the page
         navigate('/dashboard');
       }, 2000);
-    } catch (error: any) {
-      setApiError(error.message || 'Login failed. Please check your credentials.');
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : 'Login failed. Please check your credentials.';
+      setApiError(errorMessage);
       console.error('Login error:', error);
     } finally {
       setLoading(false);
@@ -119,3 +121,4 @@ const Login = () => {
 };
 
 export default Login;
+

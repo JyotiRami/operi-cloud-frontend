@@ -20,4 +20,35 @@ export const API_ENDPOINTS = {
     UPDATE: (id: string) => `${API_BASE_URL}/salons/${id}`,
     DELETE: (id: string) => `${API_BASE_URL}/salons/${id}`,
   },
+  SERVICES: {
+    GET_ALL: `${API_BASE_URL}/services`,
+    CREATE: `${API_BASE_URL}/services`,
+    UPDATE: (id: string) => `${API_BASE_URL}/services/${id}`,
+    DELETE: (id: string) => `${API_BASE_URL}/services/${id}`,
+  },
+  PRODUCTS: {
+    GET_ALL: `${API_BASE_URL}/product`,
+    CREATE: `${API_BASE_URL}/product`,
+    UPDATE: (id: string) => `${API_BASE_URL}/product/${id}`,
+    UPDATE_STATUS: (id: string, isActive: boolean) =>
+      `${API_BASE_URL}/product/${id}/status?isActive=${isActive}`,
+  },
+  CUSTOMERS: {
+    GET_ALL: `${API_BASE_URL}/customers`,
+    CREATE: `${API_BASE_URL}/customers`,
+    UPDATE: (id: string) => `${API_BASE_URL}/customers/${id}`,
+  },
+  USERS: {
+    GET_ALL: `${API_BASE_URL}/users`,
+  },
+  STAFF: {
+    GET_ALL: `${API_BASE_URL}/staff`,
+    CREATE: `${API_BASE_URL}/staff`,
+    UPDATE: (id: string) => `${API_BASE_URL}/staff/${id}`,
+  },
+  APPOINTMENTS: {
+    GET_ALL: `${API_BASE_URL}/appointment`,
+    CREATE: `${API_BASE_URL}/appointment`,
+    UPDATE: (id: string) => `${API_BASE_URL}/appointment/${id}`,
+  },
 };

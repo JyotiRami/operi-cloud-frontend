@@ -44,7 +44,7 @@ class SalonService {
     }
   }
 
-  async updateSalon(id: string, data: any) {
+  async updateSalon(id: string, data: Record<string, unknown>) {
     try {
       const response = await fetch(API_ENDPOINTS.SALON.UPDATE(id), {
         method: 'PUT',
@@ -83,3 +83,4 @@ class SalonService {
 }
 
 export default new SalonService();
+

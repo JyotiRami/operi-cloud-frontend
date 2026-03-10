@@ -7,9 +7,10 @@ export const truncateText = (text: string, maxLength: number): string => {
   return `${text.substring(0, maxLength)}...`;
 };
 
-export const getErrorMessage = (error: any): string => {
+export const getErrorMessage = (error: unknown): string => {
   if (error instanceof Error) {
     return error.message;
   }
   return 'An unexpected error occurred';
 };
+
